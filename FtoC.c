@@ -1,16 +1,27 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-
-	int F;
+	
+	//Define Variables for Fahrenheit = F, Celsius = C, and the fraction in the formula;
+	double F;
 	double C;
-
+	double Fraction = 5.0/9.0;
+	double Last;
+	
+	//Get the temperature in Fahrenheit from user
 	printf("Input temperature in Fahrenheit >>> ");
-	scanf("%d", &F);
+	scanf("%1f", &F);
+	printf("\nF = %1f", F);
 
-	C = (5.0/9.0) * (F - 32);
+	//Formula to turn Fahrenheit into Celsius
+	Last = F - 32.0;
+	printf("\nLast = %1f", Last);
+	C = Fraction * (F - 32.0);
 
-	printf("Fahrenheit: %d \n", F);
+	//Print the temperature in Fahrenheit and in Celsius
+	printf("\nFraction = %1f", Fraction);
+	printf("\nFahrenheit: %d \n", F);
 	printf("Celsius: %1f", C);
 
 	return 0;
