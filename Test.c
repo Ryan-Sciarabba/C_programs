@@ -5,8 +5,8 @@ int main() {
 	//Define variables
 	double a;
 	printf("Insert >>> ");
-	scanf("%1f", &a);
-	printf("%f", a); 
+	scanf("%d",&a);
+	printf("%d",a); 
 
 	//End program
 	return 0;
