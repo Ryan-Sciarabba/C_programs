@@ -1,3 +1,4 @@
+
 /*
    Purpose: To take a loan amount and calculate what the monthly payment would be
    
@@ -24,10 +25,12 @@ int main() {
 	scanf("%lf %lf %i", &P, &i, &n);
 	
 	//Calculate monthly payment amount
+	i = i / 12;
 	T = (i * P) / (1.0 - pow((1.0 + i), -n));
 
 	//Print variables P, i, n and T
-	printf("\nAmount borrowed: %lf \nInterest Rate: %lf \nNumber of Payments: %i \nMonthly Payments: %lf", P, i, n, T); 
+	i = i * 12 * 100;
+	printf("\nAmount borrowed: $%.2f \nInterest Rate: %.2f%% \nNumber of Payments: %i \nMonthly Payments: $%.2f", P, i, n, T); 
 
 	return 0;
 }
