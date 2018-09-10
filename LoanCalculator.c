@@ -1,9 +1,12 @@
 /*
    Purpose: To take a loan amount and calculate what the monthly payment would be
+   
    Written by: Ryan Sciarabba
+   Language: C (gcc target)
+   Version #: 1.7.1
    Date of Creation: September 7th, 2018
    Date of Last Revision: September 7th, 2018
-   Version #: 1.7.0
+   
 */
 
 #include <stdio.h>

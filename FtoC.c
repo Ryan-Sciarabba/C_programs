@@ -3,7 +3,7 @@
    
    Written by: Ryan Sciarabba
    Language: C (gcc target)
-   Version #: 1.6
+   Version #: 1.6.0
    Date of Creation: September 4th, 2018
    Date of Last Revision: September 9th, 2018
    
