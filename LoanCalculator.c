@@ -3,7 +3,7 @@
    Written by: Ryan Sciarabba
    Date of Creation: September 7th, 2018
    Date of Last Revision: September 7th, 2018
-   Version #: 1.6.8
+   Version #: 1.7.0
 */
 
 #include <stdio.h>
@@ -11,15 +11,20 @@
 
 int main() {
 
-	float P, i, T;
+	//Define doubles for Principal: P, Intrest Rate: i, and Monthly Payment: T
+	double P, i, T;
+	//Define integer Number of Payments: n
 	int n;	
 
+	//Take user input for variables P, i, and n
 	printf("Input original amount borrowed in dollars, interest rate in decimal, and number of payments in number of months separated by spaces (Ex. 10000 0.06 48) >>> ");
-	scanf("%f %f %i", &P, &i, &n);
+	scanf("%lf %lf %i", &P, &i, &n);
 	
-	T = (i * P) / (1 - pow((1 + i), -n));
+	//Calculate monthly payment amount
+	T = (i * P) / (1.0 - pow((1.0 + i), -n));
 
-	printf("\nAmount borrowed: %f \nInterest Rate: %f \nNumber of Payments: %i \nMonthly Payments: %f", P, i, n, T); 
+	//Print variables P, i, n and T
+	printf("\nAmount borrowed: %lf \nInterest Rate: %lf \nNumber of Payments: %i \nMonthly Payments: %lf", P, i, n, T); 
 
 	return 0;
 }

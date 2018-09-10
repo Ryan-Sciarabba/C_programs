@@ -15,19 +15,19 @@
 int main() {
 	
 	//Define Variables for Fahrenheit = F, Celsius = C
-	float F;
-	float C;
+	double F;
+	double C;
 	
 	//Get the temperature in Fahrenheit from user and store it as F
 	printf("Input temperature in degrees Fahrenheit (Ex. 51) >>> ");
-	scanf("%f", &F);
+	scanf("%lf", &F);
 
 	//Formula to turn Fahrenheit into Celsius
 	C = (5.0/9.0) * (F - 32.0);
 
 	//Print the temperature in Fahrenheit and in Celsius
-	printf("\nFahrenheit: %f\n", F);
-	printf("Celsius: %f", C);
+	printf("\nFahrenheit: %lf\n", F);
+	printf("Celsius: %lf", C);
 
 	return 0;
 }
