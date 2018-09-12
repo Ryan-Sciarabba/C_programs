@@ -4,9 +4,9 @@
    
    Written by: Ryan Sciarabba
    Language: C (gcc target)
-   Version #: 1.7.1
+   Version #: 1.7.3
    Date of Creation: September 7th, 2018
-   Date of Last Revision: September 7th, 2018
+   Date of Last Revision: September 12th, 2018
    
 */
 
@@ -30,7 +30,7 @@ int main() {
 
 	//Print variables P, i, n and T
 	i = i * 12 * 100;
-	printf("\nAmount borrowed: $%.2f \nInterest Rate: %.2f%% \nNumber of Payments: %i \nMonthly Payments: $%.2f", P, i, n, T); 
+	printf("\n**************************************** \nAmount borrowed: $%.2f \nInterest Rate: %.2f%% \nNumber of Payments: %i \n\n**************************************** \nMonthly Payments: $%.2f", P, i, n, T); 
 
 	return 0;
 }

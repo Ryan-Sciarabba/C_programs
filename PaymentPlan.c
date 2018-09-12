@@ -3,9 +3,9 @@
 
    Written by: Ryan Sciarabba
    Language: C (gcc target)
-   Version #: 1.6.1
+   Version #: 1.6.7
    Date of Creation: September 10th 2018
-   Date of Last Revision: September 10th 2018
+   Date of Last Revision: September 12th 2018
 */
 
 
@@ -31,7 +31,7 @@ int main(){
 
 	//Print all variables
 	printf("\n*********************************************************");
-	printf("\nHours Worked: %.2f \nHourly PayRate: $%.2f/hr \n\nGross Pay: $%.2f \n*********************************************************\nTax taken for: \n\nSocial Security: Gross Pay * 6.2%% = $%.2f \nFederal Income: Gross Pay * 15%% = $%.2f \nState Income: Gross Pay * 5%% =  $%.2f \nMedicare: Gross Pay * 1.45%% = $%.2f \n\nNet Pay: $%.2f \n*********************************************************", Hours, PayRate, Gross, SS, FIT, SIT, Medicare, Net);
+	printf("\nHours Worked: %40.2fhrs \nHourly PayRate: %38.2f$/hr \n\nGross Pay: %43.2f$ \n*********************************************************\nTax taken for: \n\nSocial Security: Gross Pay * 6.2%% = %18.2f$ \nFederal Income: Gross Pay * 15%% = %20.2f$ \nState Income: Gross Pay * 5%% =  %22.2f$ \nMedicare: Gross Pay * 1.45%% = %24.2f$ \n\nNet Pay: %45.2f$ \n*********************************************************", Hours, PayRate, Gross, SS, FIT, SIT, Medicare, Net);
 	
 	return 0;
 }
