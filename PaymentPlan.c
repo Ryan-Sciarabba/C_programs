@@ -3,14 +3,17 @@
 
    Written by: Ryan Sciarabba
    Language: C (gcc target)
-   Version #: 1.6.7
+   Version #: 1.7.5
    Date of Creation: September 10th 2018
    Date of Last Revision: September 12th 2018
 */
 
 
 #include <stdio.h>
-#include <math.h>
+#define SS_Rate 0.062
+#define FIT_Rate 0.15
+#define SIT_Rate 0.05
+#define Medicare_Rate 0.0145
 
 int main(){
 	
@@ -23,15 +26,15 @@ int main(){
 	
 	//Calculate and store Gross payment, Social Security, Federal Income Tax, State Income Tax, Medicare, and Net payment
 	Gross = Hours * PayRate;
-	SS = Gross * 0.062;
-	FIT = Gross * 0.15;
-	SIT = Gross * 0.05;
-	Medicare = Gross * 0.0145;
+	SS = Gross * SS_Rate;
+	FIT = Gross * FIT_Rate;
+	SIT = Gross * SIT_Rate;
+	Medicare = Gross * Medicare_Rate;
 	Net = Gross - (SS + FIT + SIT + Medicare);
 
 	//Print all variables
 	printf("\n*********************************************************");
-	printf("\nHours Worked: %40.2fhrs \nHourly PayRate: %38.2f$/hr \n\nGross Pay: %43.2f$ \n*********************************************************\nTax taken for: \n\nSocial Security: Gross Pay * 6.2%% = %18.2f$ \nFederal Income: Gross Pay * 15%% = %20.2f$ \nState Income: Gross Pay * 5%% =  %22.2f$ \nMedicare: Gross Pay * 1.45%% = %24.2f$ \n\nNet Pay: %45.2f$ \n*********************************************************", Hours, PayRate, Gross, SS, FIT, SIT, Medicare, Net);
+	printf("\nHours Worked: %40.2fhrs \nHourly PayRate: %38.2f$/hr \n\nGross Pay: %43.2f$ \n*********************************************************\nTax taken for: \n\nSocial Security: = %35.2f$ \nFederal Income: = %36.2f$ \nState Income: =  %37.2f$ \nMedicare: = %42.2f$ \n\nNet Pay: %45.2f$ \n*********************************************************", Hours, PayRate, Gross, SS, FIT, SIT, Medicare, Net);
 	
 	return 0;
 }

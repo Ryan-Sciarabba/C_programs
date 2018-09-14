@@ -3,9 +3,9 @@
    
    Written by: Ryan Sciarabba
    Language: C (gcc target)
-   Version #: 1.6.0
+   Version #: 1.6.1
    Date of Creation: September 4th, 2018
-   Date of Last Revision: September 9th, 2018
+   Date of Last Revision: September 14th, 2018
    
 */
 
@@ -26,8 +26,8 @@ int main() {
 	C = (5.0/9.0) * (F - 32.0);
 
 	//Print the temperature in Fahrenheit and in Celsius
-	printf("\nFahrenheit: %lf\n", F);
-	printf("Celsius: %lf", C);
+	printf("\nFahrenheit: %.2f\n", F);
+	printf("Celsius: %.2f", C);
 
 	return 0;
 }
