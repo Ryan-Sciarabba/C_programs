@@ -4,18 +4,18 @@
    
    Written by: Ryan Sciarabba
    Language: C (gcc target)
-   Version #: 1.7.3
+   Version #: 1.7.4
    Date of Creation: September 7th, 2018
-   Date of Last Revision: September 12th, 2018
+   Date of Last Revision: September 24th, 2018
    
 */
 
 #include <stdio.h>
 #include <math.h>
 
-int main() {
+int main(void) {
 
-	//Define doubles for Principal: P, Intrest Rate: i, and Monthly Payment: T
+	//Define doubles for Principal: P, Interest Rate: i, and Monthly Payment: T
 	double P, i, T;
 	//Define integer Number of Payments: n
 	int n;	
