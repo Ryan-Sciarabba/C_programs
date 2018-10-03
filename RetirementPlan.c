@@ -3,7 +3,7 @@
   
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version #: 1.0
+   Version #: 1.7.4
    Date of Creation: October 3rd, 2018
    Date of Last Revision: October 3rd, 2018
 */
@@ -27,19 +27,22 @@ int main(void){
 	printf("Input starting year and ending year separtated by spaces (Ex. 2014 2016) >>> ");
 	scanf("%i %i", &SY, &EY);
 
-	//Convert Percent to Decimal and define starting variables
-	PSI = PSI / 100.0;
-	PC = PC / 100.0;
-	ARR = ARR / 100.0;
+	//Define starting variables and calculate the first Contribution and Closing and change PC to decimal for calculation
 	ST = 0.0;
 	E = 0.0;
-	CON = S * PC;
+	L = 0;
+	CON = S * (PC / 100.0);
 	CLO = ST + CON + E;
-	L = 0;	
 
-	//Print Given Variables and Categories
-	printf("Salary: $%.2f \nPercent Salary Increase: %.2f%% \nContribution Rate: %.2f%% \nAnnual Rate of Return: %.2f%% \nStarting Year: %d \nEnding Year: %d \n\nYear \tSalary \t\tStarting \tContribution \tEarnings \tClosing", S, PSI, PC, ARR, SY, EY);
+	//Print given variables and categories
+	printf("\nSalary: $%.2f \nPercent Salary Increase: %.2f%% \nContribution Rate: %.2f%% \nAnnual Rate of Return: %.2f%% \nStarting Year: %d \nEnding Year: %d \n\nYear \tSalary \t\tStarting \tContribution \tEarnings \tClosing", S, PSI, PC, ARR, SY, EY);
 
+	//Convert percents to decimal for calculations
+	PSI = PSI / 100.0;
+	PC = PC / 100.0;
+	ARR = ARR / 100.0;	
+
+	//Loop to calculate most variables
 	for(SY; SY <= EY; SY++){
 		if(L < 25) {
 			printf("\n%d \t$%7.2f \t$%7.2f \t$%7.2f \t$%7.2f \t$%7.2f", SY, S, ST, CON, E, CLO);
@@ -51,10 +54,14 @@ int main(void){
 			L = L + 1;	
 		}
 		else {
+
+			//Prompt the user to continue printing lines when there are more than 24 onscreen
 			printf("\nContinue? (y, n) >>> ");
-			scanf("%c", &C);
+			scanf(" %c", &C);
 			if(C == 'y') {
 				L = 0;
+				SY = SY - 1;
+				printf("\nYear \tSalary \t\tStarting \tContribution \tEarnings \tClosing");
 				continue;
 			}
 			else if(C == 'n') {
