@@ -2,7 +2,7 @@
    Purpose: To take in a number and return some information about it
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version Number: 1.0
+   Version Number: 1.5.4
    Date of Creation: October 5th, 2018
    Date of Last Revision: October 5th, 2018
 */
