@@ -3,9 +3,9 @@
   
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version #: 1.7.4
+   Version #: 1.8.4
    Date of Creation: October 3rd, 2018
-   Date of Last Revision: October 3rd, 2018
+   Date of Last Revision: October 14th, 2018
 */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ int main(void){
 			printf("\n%d \t$%7.2f \t$%7.2f \t$%7.2f \t$%7.2f \t$%7.2f", SY, S, ST, CON, E, CLO);
 			ST = CLO;
 			S = S + (S * PSI);
-			E = CON * ARR + E;
+			E = ST * ARR;
 			CON = S * PC;
 			CLO = ST + CON + E;
 			L = L + 1;	
