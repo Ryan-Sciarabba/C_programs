@@ -2,7 +2,7 @@
    Purpose: To take in a number and return some information about it
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version Number: 1.5.6
+   Version Number: 1.5.7
    Date of Creation: October 5th, 2018
    Date of Last Revision: October 22th, 2018
 */
@@ -36,14 +36,18 @@ int main(void){
 	//While loop to keep prompting for more numbers
 	while(x < c){
 		
+		//Take in a number
 		printf("Input a positive whole number (Ex. 7) >>> ");
 		scanf("%i", &number);
 		printf("\n");
 		
+		//Calculate multiples
 		mSeven = number / 7.0;
 		mEleven = number / 11.0;
 		mThirteen = number / 13.0;
 		if(number != 0){
+			
+			//Check to see if the number is a multiple of 7, 11, 13
 			if((int)mSeven == mSeven){
 				printf("Is %i a multiple of 7: Yes\n", number);
 			}
@@ -62,14 +66,17 @@ int main(void){
 			else{
 				printf("Is %i a multiple of 13: No\n", number);
 			}
-			mNumber = number;
-			sum = 0;
-
-			while(mNumber != 0){
-				rem = mNumber % 10;
-				sum = sum + rem;
-				mNumber = mNumber / 10;
+			
+			//Find the sum of the digits
+			rem = number;			
+			sum = 0;	
+		
+			while(rem != 0){
+				sum = rem % 10;
+				rem = rem / 10;
 			}
+
+			//Check to see if the sum is odd or even
 			if(sum % 2 == 0){
 				printf("Sum of digits is even: %i\n", sum);
 			}
@@ -78,9 +85,8 @@ int main(void){
 			}
 		}
 
-		i = 2.0;
-		
-		for(i; i <= number; i++){
+		//Check to see if the number is prime
+		for(i = 2.0; i <= number; i++){
 			prime = number / i;
 			if(number == i){
 				printf("%i is a prime number\n\n", number);
@@ -94,6 +100,8 @@ int main(void){
 				continue;
 			} 
 		}
+
+		//Add 1 to the number of input and checked numbers
 		x = x + 1;
 	}
 	return 0;
