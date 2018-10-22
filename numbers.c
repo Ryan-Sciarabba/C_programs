@@ -2,20 +2,27 @@
    Purpose: To take in a number and return some information about it
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version Number: 1.5.4
+   Version Number: 1.5.6
    Date of Creation: October 5th, 2018
-   Date of Last Revision: October 5th, 2018
+   Date of Last Revision: October 22th, 2018
 */
 
 #include <stdio.h>
 
 int main(void){
 	
-	//Define variables for the given number = number, the number of numbers to be input = c, the current number of numbers input, the multiple of the number = mNumber, the sum of the digits = sum, and the remainder in a later calculation = rem
-	int number, c, x, mNumber, sum, rem;
+	int number, //Given number
+		 c, //Number of numbers to be input
+		 x, //The current number in c 
+	   mNumber, //The multiple of the number 
+	       sum,
+	       rem; //The remainder in a later calculation
 
-	//Define doubles for the multiple of seven = mSeven, the mutiple of eleven = mEleven, the multiple of thirteen = mThirteen, the for loop iterator = i, and the check for if the number is prime = prime
-	double mSeven, mEleven, mThirteen, i, prime;
+	double mSeven, //Multiple of seven
+	      mEleven, //Multiple of eleven 
+	    mThirteen, //Multiple of thirteen 
+		    i, //Iterator for a later loop 
+		prime; //Check to see if the number is prime
 	
 	//Set c to y for the continuation of the code
 	printf("How many numbers will be input? >>> ");
@@ -38,15 +45,23 @@ int main(void){
 		mThirteen = number / 13.0;
 		if(number != 0){
 			if((int)mSeven == mSeven){
-				printf("%i is a multiple of 7\n", number);
+				printf("Is %i a multiple of 7: Yes\n", number);
+			}
+			else{
+				printf("Is %i a mupltiple of 7: No\n", number);
 			}
 			if((int)mEleven == mEleven){
-				printf("%i is a multiple of 11\n", number);
+				printf("Is %i a multiple of 11: Yes\n", number);
+			}
+			else{
+				printf("Is %i a multiple of 11: No\n", number);
 			}
 			if((int)mThirteen == mThirteen){
-				printf("%i is a multiple of 13\n", number);
+				printf("Is %i a multiple of 13: Yes\n", number);
 			}
-
+			else{
+				printf("Is %i a multiple of 13: No\n", number);
+			}
 			mNumber = number;
 			sum = 0;
 
@@ -55,10 +70,10 @@ int main(void){
 				sum = sum + rem;
 				mNumber = mNumber / 10;
 			}
-			if(sum / 2.0 == (int)(sum / 2)){
+			if(sum % 2 == 0){
 				printf("Sum of digits is even: %i\n", sum);
 			}
-			if(sum / 2.0 != (int)(sum / 2)){
+			else{
 				printf("Sum of digits is odd: %i\n", sum);
 			}
 		}
