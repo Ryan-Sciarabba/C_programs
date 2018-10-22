@@ -13,11 +13,12 @@ int main(void){
 
 	double fraction, cHalf, numerator;	
 
-	for(numerator = 1; numerator <= 1; numerator++){
-		for(cHalf = 2.0; cHalf <= 30; cHalf++){ 
-			fraction = cHalf * (numerator/cHalf);
-			printf("%1.f   *   %1.f/%1.f   =   %4.2f\n", cHalf, numerator, cHalf, fraction);
+	for(cHalf = 2.0; cHalf <= 30; cHalf++){
+		for(numerator = 1; numerator <= cHalf; numerator++){ 
+			fraction = fraction + (1.0/cHalf);
 		}
+		printf("%1.f X 1/%1.f = %4.2f\n", (numerator - 1), cHalf, fraction);
+		fraction = 0.0;
 	}
 	return 0;
 }
