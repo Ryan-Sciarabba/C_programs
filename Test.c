@@ -1,17 +1,13 @@
 #include <stdio.h>
 
+void recurse(int count)
+{
+	printf("%d\n", count);
+	recurse(count + 1);
+}
+
 int main() {
 	
-	int x;
-	
-	x = 14;	 
-	
-	if(x % 2 == 0){
-		printf("Oh boy");
-	}
-	else{
-		printf("Oh no");
-	}
-	//End program
+	recurse(1);
 	return 0;
 }

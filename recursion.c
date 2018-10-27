@@ -19,23 +19,21 @@ int main(void){
 	scanf("%i", &x);
 	
 	f(x);
-	printf("x: %i\n", x);
-
 	return 0;
 }
 
 int f(int x){
 
+	int y;
+
 	if(x <= 0){
-		x = x + 3;
-		f(x);
-		printf("if\n");
+		y = f(x + 3);
+		printf("if: %i\n", y);
 	}
 
 	else{
-		x = f(x - 2) + (x - 4);
-		printf("else\n");
+		y = f(x - 2);
+		y = f(x - 4);
+		printf("else: %i\n", y);
 	}
-	
-	return(x);
 }
