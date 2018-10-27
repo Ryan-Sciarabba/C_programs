@@ -13,11 +13,20 @@ int main(void){
 
 	double fraction, cHalf, numerator;	
 
+	printf("Fraction  Operator\n");
 	for(cHalf = 2.0; cHalf <= 30; cHalf++){
 		for(numerator = 1; numerator <= cHalf; numerator++){ 
 			fraction = fraction + (1.0/cHalf);
 		}
-		printf("%1.f X 1/%1.f = %4.2f\n", (numerator - 1), cHalf, fraction);
+		if(fraction == 1.0){
+			printf("%2.f/%2.f        =        1\n", cHalf, cHalf);
+		}
+		else if(fraction < 1.0){
+			printf("%2.f/%2.f        <        1\n", cHalf, cHalf);
+		}
+		else{
+			printf("%2.f/%2.f        >        1\n", cHalf, cHalf);
+		}
 		fraction = 0.0;
 	}
 	return 0;
