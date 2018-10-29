@@ -2,38 +2,41 @@
    Purpose: To take in a number and run it through two functions based on certain conditions
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 1.0
-   Date of Creation: October 26h, 2018
-   Date of Last Revision: October 26th, 2018
+   Version: 1.8.2
+   Date of Creation: October 26th, 2018
+   Date of Last Revision: October 29th, 2018
 */
 
 #include <stdio.h>
 
-int f(int x);
+//Prototype of f
+int f(int y);
 
 int main(void){
 	
 	int x;
-
+	
 	printf("Input a number (Ex. -4) >>> ");
 	scanf("%i", &x);
-	
+
 	f(x);
 	return 0;
 }
 
-int f(int x){
-
-	int y;
-
-	if(x <= 0){
-		y = f(x + 3);
-		printf("if: %i\n", y);
+int f(int y){
+	
+	if(y < 0){
+		
+		printf("y: %i\n", y);
+		f(y + 3);
 	}
-
+	else if(y == 0){
+		
+		printf("y: %i\n", y);	
+	}
 	else{
-		y = f(x - 2);
-		y = f(x - 4);
-		printf("else: %i\n", y);
+		
+		printf("y: %i\n", y);
+		f(y - 2) + (y + 4);
 	}
 }

@@ -1,5 +1,5 @@
 /*
-   Purpose: To read a barcode
+   Purpose: To read a barcode and check to see whether it is valid
    Written by: Ryan Sciarabba
    Language: c (gcc target)
    Version: 2.4.6
