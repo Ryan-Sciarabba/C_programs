@@ -1,13 +1,8 @@
 #include <stdio.h>
-
-void recurse(int count)
-{
-	printf("%d\n", count);
-	recurse(count + 1);
-}
+#include <string.h>
 
 int main() {
-	
-	recurse(1);
-	return 0;
+	int result;
+	result = strcmp("a", "A");
+	printf("%i", result);
 }

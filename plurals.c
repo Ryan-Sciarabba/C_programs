@@ -2,9 +2,9 @@
    Purpose: To make a plural out of a given noun
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 1.6.9
+   Version: 1.7.2
    Date of Creation: October 22nd, 2018
-   Date of Last Revision: October 22, 2018
+   Date of Last Revision: November 9th, 2018
 */
 
 #include <stdio.h>
@@ -29,12 +29,8 @@ int main(void){
 		noun[len + 1] = 's';
 		noun[len + 2] = '\0';
 	}
-	else if((noun[len - 2] == 'c' && noun[len - 1] == 'h') || (noun[len - 2] == 's' && noun[len - 1] == 'h')){
-		noun[len] = 'e';
-		noun[len + 1] = 's';
-		noun[len + 2] = '\0';
-	}
-	else if(noun[len - 1] == 's'){
+	//Replace ch, sh or s with es
+	else if((noun[len - 2] == 'c' && noun[len - 1] == 'h') || (noun[len - 2] == 's' && noun[len - 1] == 'h') || (noun[len - 1] == 's')){
 		noun[len] = 'e';
 		noun[len + 1] = 's';
 		noun[len + 2] = '\0';
