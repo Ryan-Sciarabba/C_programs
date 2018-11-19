@@ -37,6 +37,6 @@ int f(int y){
 	else{
 		
 		printf("y: %i\n", y);
-		f(y - 2) + (y + 4);
+		f((y - 3) + (y + 5));
 	}
 }

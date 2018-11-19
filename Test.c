@@ -1,13 +1,16 @@
 #include <stdio.h>
 
-void recurse(int count)
-{
-	printf("%d\n", count);
-	recurse(count + 1);
-}
+void recurse(int *count);
 
 int main() {
 	
-	recurse(1);
+	int count;
+	count = 2;
+	recurse(&count);
 	return 0;
+}
+
+void recurse(int *count){
+	printf(count + 1);
+	recurse(*count + 1);
 }
