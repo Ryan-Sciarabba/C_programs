@@ -2,16 +2,16 @@
    Purpose: To read a barcode and check to see whether it is valid
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 2.4.6
+   Version: 2.4.7
    Date of Creation: October 10th, 2018
-   Date of Last Revision: October 15th, 2018
+   Date of Last Revision: November 9th, 2018
 */
 
 #include <stdio.h>
 
 int main(void){
 
-	int aBarcode[12]; //Barcode array to read each specific value
+	int aBarcode[13]; //Barcode array to read each specific value
 	
 	int barcode1, //First half of barcode 
 	    barcode2, //Second half of barcode
