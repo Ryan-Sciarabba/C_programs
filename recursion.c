@@ -2,30 +2,29 @@
    Purpose: To take in a number and run it through a function then print it out
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 1.9.2
+   Version: 1.11.2
    Date of Creation: October 26th, 2018
-   Date of Last Revision: November 12th, 2018
+   Date of Last Revision: November 19th, 2018
 */
 
 #include <stdio.h>
 
 //Prototype of f
-int f(int x);
+int f(int y);
 
 int main(void){
 	
 	int x; //Integer to be taken in from a user
-	int y; //Integer to be printed out
 
 	//Ask for an integer
 	printf("Input a number (Ex. -4) >>> ");
 	scanf("%i", &x);
 
-	//Set y to the returned value of f(x)
-	y = f(x);
+	//Run f
+	x = f(x);
 	
-	//Print y
-	printf("%i", y);
+	//Print x
+	printf("%i", x);
 	
 	return 0;
 }
@@ -34,23 +33,18 @@ int main(void){
    Purpose: To take a number and modify it for main
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 1.4.3
+   Version: 1.6.2
    Date of Creation: October 26th, 2018
-   Date of Last Revision: November 12th, 2018
+   Date of Last Revision: November 19th, 2018
 */
 
-int f(int x){
+int f(int y){
 	
-	if(x <= 0){
-		return(x + 3);
+	if(y <= 0){
+		y = y + 3;
+		return y;
 	}
-	else{
-<<<<<<< HEAD
-		
-		printf("y: %i\n", y);
-		f((y - 3) + (y + 5));
-=======
-		f(x - 2) + (x - 4);
->>>>>>> 7dada608a4096077254bd4a4e6084b597f6a7936
+	else{	
+		f(y - 3) + (y + 5);
 	}
 }
