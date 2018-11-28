@@ -2,104 +2,89 @@
    Purpose: To store employee data in a struct and linked list
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 1.0
+   Version: 2.2.4
    Date of creation: November 26th, 2018
-   Date of last revision: November 26th, 2018
+   Date of last revision: November 28th, 2018
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-	
+#include <string.h>
+
+//Create struct with fields about the employees
 struct Employee{
-
-	char firstName[50];
-	char lastName[50];
+	char fName[50];	
+	char lName[50];
 	int number;
-};
-
-struct Employees{
-	char fName;	
-	char lName;
-	int data;
-	struct Employees *next;
+	struct Employee *next;
 };
 
 int main(){
 	
-	struct Employee eOne;
-	struct Employee eTwo;
-	struct Employee eThree;
+	int n; //Boolean for while loop
 
-	struct Employees* first = NULL;
-	struct Employees* second = NULL;
-	struct Employees* third = NULL;
-		
+	//Initialize each employee and one more for sorting
+	struct Employee* first = NULL;
+	struct Employee* second = NULL;
+	struct Employee* third = NULL;
+	struct Employee* temp = NULL;
+	
+	//Allocate size for each
+	first = (struct Employee*)malloc(sizeof(struct Employee));
+        second = (struct Employee*)malloc(sizeof(struct Employee));
+        third = (struct Employee*)malloc(sizeof(struct Employee));	
+	
+	//Get information from the user on each employee
 	printf("Input first employee's first name >>> ");
-	scanf("%s", &eOne.firstName);
+	scanf("%s", &first->fName);
 	printf("Input first employee's last name >>> ");
-	scanf("%s", &eOne.lastName);
+	scanf("%s", &first->lName);
 	printf("Input first employee's number >>> ");
-	scanf("%i", &eOne.number);
+	scanf("%i", &first->number);
+	printf("\n");
 	
 	printf("Input second employee's first name >>> ");
-        scanf("%s", &eTwo.firstName);
+        scanf("%s", &second->fName);
         printf("Input second employee's last name >>> ");
-        scanf("%s", &eTwo.lastName);
+        scanf("%s", &second->lName);
         printf("Input second employee's number >>> ");
-        scanf("%i", &eTwo.number);
-
+        scanf("%i", &second->number);
+	printf("\n");
+	
 	printf("Input third employee's first name >>> ");
-        scanf("%s", &eThree.firstName);
+        scanf("%s", &third->fName);
         printf("Input third employee's last name >>> ");
-        scanf("%s", &eThree.lastName);
+        scanf("%s", &third->lName);
         printf("Input third employee's number >>> ");
-        scanf("%i", &eThree.number);
+        scanf("%i", &third->number);
+	printf("\n");
 	
-	first = (struct Employees*)malloc(sizeof(struct Employees));
-	second = (struct Employees*)malloc(sizeof(struct Employees));
-	third = (struct Employees*)malloc(sizeof(struct Employees));
-
-	first->fName = *eOne.firstName;
-	first->lName = *eOne.lastName;
-	first->data = eOne.number;
+	//Link each struct
 	first->next = second;
-	
-	second->fName = *eTwo.firstName;
-	second->lName = *eTwo.lastName;
-	second->data = eTwo.number;
 	second->next = third;
-	
-	third->fName = *eThree.firstName;
-	third->lName = *eThree.lastName;
-	third->data = eThree.number;
 	third->next = NULL;
 	
-	if(first->data > second->data){
-		if(second->data > third->data){
-			printf(" %d ", third->data);
-        		printf("%s ", third->fName);
-        		printf("%s ", third->lName);
-			
-			printf(" %d ", second->data);
-                        printf("%s ", second->fName);
-                        printf("%s ", second->lName);
-
-			printf(" %d ", first->data);
-        	        printf("%s ", first->fName);
-	                printf("%s ", first->lName);
-
+	//Sort the employees by number
+	n = 0;	
+	while(n == 0){
+		if(first->number > second->number){
+			temp = second;
+			second = first;
+			first = temp;
+		}
+		else if(second->number > third->number){
+			temp = third;
+			third = second;
+			second = temp;
 		}
 		else{
-			printf(" %d ", second->data);
-			printf("%s ", second->fName);
-			printf("%s ", second->lName);
-	
-			
+			n = 1;
 		}
 	}
-	else{
-		printf(" %d ", first->data);
-		printf("%s ", first->fName);
-		printf("%s ", first->lName);
-	}
+	
+	//Print the sorted list
+	printf("Employees sorted by number:\n");
+	printf("Employee: %d %s %s\n", first->number, first->fName, first->lName);
+	printf("Employee: %d %s %s\n", second->number, second->fName, second->lName);
+	printf("Employee: %d %s %s\n", third->number, third->fName, third->lName);
 }
