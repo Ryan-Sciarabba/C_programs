@@ -15,6 +15,7 @@ struct Part{
 	char name[50];
 	double price;
 };
+
 int main(void){
 
 	//Define structs for each part

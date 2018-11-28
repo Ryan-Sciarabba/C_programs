@@ -45,6 +45,7 @@ int f(int y){
 		return y;
 	}
 	else{	
-		f(y - 3) + (y + 5);
+		y = f(y - 3) + (y + 5);
+		return y;
 	}
 }
