@@ -18,7 +18,8 @@ struct Employee{
 };
 
 struct Employees{
-	
+	char fName;	
+	char lName;
 	int data;
 	struct Employees *next;
 };
@@ -58,27 +59,47 @@ int main(){
 	second = (struct Employees*)malloc(sizeof(struct Employees));
 	third = (struct Employees*)malloc(sizeof(struct Employees));
 
-	first->data = 1;
+	first->fName = *eOne.firstName;
+	first->lName = *eOne.lastName;
+	first->data = eOne.number;
 	first->next = second;
 	
-	second->data = 2;
+	second->fName = *eTwo.firstName;
+	second->lName = *eTwo.lastName;
+	second->data = eTwo.number;
 	second->next = third;
 	
-	third->data = 3;
+	third->fName = *eThree.firstName;
+	third->lName = *eThree.lastName;
+	third->data = eThree.number;
 	third->next = NULL;
 	
-	printf(" %d ", first->data);
-	printf("%s ", eOne.firstName);
-	printf("%s ", eOne.lastName);
-	printf("%i\n", eOne.number);
-	
-	printf(" %d ", second->data);
-        printf("%s ", eTwo.firstName);
-        printf("%s ", eTwo.lastName);
-        printf("%i\n", eTwo.number);
+	if(first->data > second->data){
+		if(second->data > third->data){
+			printf(" %d ", third->data);
+        		printf("%s ", third->fName);
+        		printf("%s ", third->lName);
+			
+			printf(" %d ", second->data);
+                        printf("%s ", second->fName);
+                        printf("%s ", second->lName);
 
-	printf(" %d ", third->data);
-        printf("%s ", eThree.firstName);
-        printf("%s ", eThree.lastName);
-        printf("%i\n", eThree.number);
+			printf(" %d ", first->data);
+        	        printf("%s ", first->fName);
+	                printf("%s ", first->lName);
+
+		}
+		else{
+			printf(" %d ", second->data);
+			printf("%s ", second->fName);
+			printf("%s ", second->lName);
+	
+			
+		}
+	}
+	else{
+		printf(" %d ", first->data);
+		printf("%s ", first->fName);
+		printf("%s ", first->lName);
+	}
 }
