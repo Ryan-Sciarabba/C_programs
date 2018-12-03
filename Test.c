@@ -1,25 +1,56 @@
 #include <stdio.h>
-<<<<<<< HEAD
+#include <stdlib.h>
 
-void recurse(int *count);
-
-int main() {
+struct Person{
+	char name[50];
+	int data;
+	struct Person *next;
+};
 	
-	int count;
-	count = 2;
-	recurse(&count);
+int main(){
+
+	int n, i;
+	
+	printf("How many people will be named?");
+	scanf("%i", &n);	
+	i = n;
+
+	struct Person* head = NULL;
+	head = (struct Person*)malloc(sizeof(struct Person));
+
+	printf("Person's name: ");
+	scanf("%s", &head->name);
+	printf("Person's number: ");
+	scanf("%i", &head->data);
+	
+	struct Person* cur = NULL;
+	head->next = cur;
+	struct Person* it = head;
+
+	while(n > 1){
+		cur = (struct Person*)malloc(sizeof(struct Person));
+		printf("Person's name: ");
+		scanf("%s", &cur->name);
+		printf("Person's number: ");
+		scanf("%i", &cur->data);
+		cur->next = NULL;
+		it->next = cur;
+		it = cur;
+		n--;
+	}
+	it = head;
+	cur = it;
+	n = it->data;
+	while(i > 0){
+		if(it->data > n){
+			n = it->data;
+			cur = it;
+		}
+		it = it->next;
+		i--;
+	}
+	printf("%s, %i", cur->name, cur->data);
 	return 0;
-=======
-#include <string.h>
-
-int main() {
-	int result;
-	result = strcmp("a", "A");
-	printf("%i", result);
->>>>>>> 7dada608a4096077254bd4a4e6084b597f6a7936
 }
 
-void recurse(int *count){
-	printf(count + 1);
-	recurse(*count + 1);
-}
+	

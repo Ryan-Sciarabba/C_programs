@@ -2,14 +2,13 @@
    Purpose: To store employee data in a struct and linked list
    Written by: Ryan Sciarabba
    Language: c (gcc target)
-   Version: 2.2.4
+   Version: 3.1.2
    Date of creation: November 26th, 2018
-   Date of last revision: November 28th, 2018
+   Date of last revision: December 3rd, 2018
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 //Create struct with fields about the employees
 struct Employee{
@@ -21,70 +20,64 @@ struct Employee{
 
 int main(){
 	
-	int n; //Boolean for while loop
+	int n; //Controller for while loop (number of employees)
+	int i; //How many users will be input and largest ID number
+	
+	//Get how many employees will be input and set n to i
+	printf("How many employees will be input? >>> ");
+	scanf("%i", &i);
+	n = i;
+	
+	//Initialize first employee and get employee information
+	struct Employee* head = NULL;
+	head = (struct Employee*)malloc(sizeof(struct Employee));
+	printf("Employee's first name >>> ");
+	scanf("%s", &head->fName);
+	printf("Employee's last name >>> ");
+	scanf("%s", &head->lName);
+	printf("Employee's 3-digit number >>> ");
+	scanf("%i", &head->number);
+	printf("\n");
 
-	//Initialize each employee and one more for sorting
-	struct Employee* first = NULL;
-	struct Employee* second = NULL;
-	struct Employee* third = NULL;
+	//Create a temporary struct for employees to be written over and link head with temp
 	struct Employee* temp = NULL;
+	head ->next = temp;
+	struct Employee* it = head;
 	
-	//Allocate size for each
-	first = (struct Employee*)malloc(sizeof(struct Employee));
-        second = (struct Employee*)malloc(sizeof(struct Employee));
-        third = (struct Employee*)malloc(sizeof(struct Employee));	
-	
-	//Get information from the user on each employee
-	printf("Input first employee's first name >>> ");
-	scanf("%s", &first->fName);
-	printf("Input first employee's last name >>> ");
-	scanf("%s", &first->lName);
-	printf("Input first employee's number >>> ");
-	scanf("%i", &first->number);
-	printf("\n");
-	
-	printf("Input second employee's first name >>> ");
-        scanf("%s", &second->fName);
-        printf("Input second employee's last name >>> ");
-        scanf("%s", &second->lName);
-        printf("Input second employee's number >>> ");
-        scanf("%i", &second->number);
-	printf("\n");
-	
-	printf("Input third employee's first name >>> ");
-        scanf("%s", &third->fName);
-        printf("Input third employee's last name >>> ");
-        scanf("%s", &third->lName);
-        printf("Input third employee's number >>> ");
-        scanf("%i", &third->number);
-	printf("\n");
-	
-	//Link each struct
-	first->next = second;
-	second->next = third;
-	third->next = NULL;
-	
-	//Sort the employees by number
-	n = 0;	
-	while(n == 0){
-		if(first->number > second->number){
-			temp = second;
-			second = first;
-			first = temp;
-		}
-		else if(second->number > third->number){
-			temp = third;
-			third = second;
-			second = temp;
-		}
-		else{
-			n = 1;
-		}
+	//Keep creating employees and linking them with the previous entry
+	while(i > 1){
+		temp = (struct Employee*)malloc(sizeof(struct Employee));
+		printf("Employee's first name >>> ");
+		scanf("%s", &temp->fName);
+		printf("Employee's last name >>> ");
+		scanf("%s", &temp->lName);
+		printf("Employee's 3-digit number >>> ");
+		scanf("%i", &temp->number);
+		printf("\n");
+		temp->next = NULL;
+		it->next = temp;
+		it = temp;
+		i--;
 	}
 	
-	//Print the sorted list
-	printf("Employees sorted by number:\n");
-	printf("Employee: %d %s %s\n", first->number, first->fName, first->lName);
-	printf("Employee: %d %s %s\n", second->number, second->fName, second->lName);
-	printf("Employee: %d %s %s\n", third->number, third->fName, third->lName);
+	//Set pointer to head and i to the first number in the linked list
+	it = head;
+	temp = it;
+	i = it->number;
+	
+	//Find the largest employee ID in the list and store it as i then store the struct as temp
+	while(n > 0){
+		if(it->number > i){
+			i = it->number;
+			temp = it;
+		}
+		it = it->next;
+		n--;
+	}
+
+	//Print the employee with the highest ID
+	printf("Employee with the largest ID number:\n");
+	printf("Employee: %d %s %s\n", temp->number, temp->fName, temp->lName);
+	
+	return 0;
 }
